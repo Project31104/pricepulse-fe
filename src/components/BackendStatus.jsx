@@ -31,8 +31,7 @@ export default function BackendStatus() {
       <div className="flex items-center gap-2 text-xs text-red-700 bg-red-50
                       border border-red-200 rounded-xl px-4 py-2 w-fit mb-6">
         <span className="w-2 h-2 rounded-full bg-red-500" />
-        Backend offline — run <code className="font-mono mx-1 bg-red-100 px-1 rounded">npm run dev:server</code>
-        in your terminal
+        Backend offline — please try again in a moment
       </div>
     );
   }
