@@ -39,6 +39,7 @@ export function AuthProvider({ children }) {
   const logout = () => {
     localStorage.removeItem('user'); // clear persisted session
     setUser(null);
+    window.location.reload();
   };
 
   return (
