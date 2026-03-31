@@ -91,10 +91,10 @@ export default function Register() {
           <div className="fade-in-up-1 flex justify-center mb-6">
             <span className="text-2xl font-black tracking-tight">
               <span className="bg-gradient-to-r from-violet-400 via-blue-400 to-pink-400
-                               bg-clip-text text-transparent"><img src="icons/icon128.png" alt="PricePulse"/> PricePulse</span>
+                               bg-clip-text text-transparent">💰 PricePulse</span>
             </span>
           </div>
-    
+
           {/* Heading */}
           <div className="fade-in-up-2 text-center mb-8">
             <h1 className="text-3xl font-black text-white tracking-tight mb-1">Create account</h1>
