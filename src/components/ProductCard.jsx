@@ -12,6 +12,7 @@
 import { formatCurrency } from '../utils/formatCurrency';
 import { StarIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 import { StarIcon as StarOutline } from '@heroicons/react/24/outline';
+import WishlistButton from './WishlistButton';
 
 const PLATFORM_STYLES = {
   Amazon:   { badge: 'bg-orange-500/20 text-orange-300 border-orange-400/30', dot: 'bg-orange-400' },
@@ -57,6 +58,11 @@ export default function ProductCard({ product, isCheapest: isCheapestProp }) {
                        px-2.5 py-1 rounded-full border ${style.badge}`}>
         <span className={`w-1.5 h-1.5 rounded-full ${style.dot}`} />
         {product.platform}
+      </div>
+
+      {/* Wishlist heart button — below ribbon when cheapest, else top-left */}
+      <div className={`absolute left-3 z-20 ${isCheapest ? 'top-12' : 'top-3'}`}>
+        <WishlistButton product={product} />
       </div>
 
       {/* Image */}
