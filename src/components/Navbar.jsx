@@ -14,6 +14,16 @@ export default function Navbar() {
     window.location.href = '/';
   };
 
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    if (window.location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' }), 300);
+    } else {
+      document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleDownloadClick = (e) => {
     e.preventDefault();
     setDownloading(true);
@@ -57,7 +67,7 @@ export default function Navbar() {
 
           {/* Nav links */}
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium">
-            <Link to="/" className="silver-link">Home</Link>
+            <a href="/#hero" onClick={handleHomeClick} className="silver-link">Home</a>
             <a href="/#how-it-works" className="silver-link">How It Works</a>
             <a
               href="/#download-extension"
