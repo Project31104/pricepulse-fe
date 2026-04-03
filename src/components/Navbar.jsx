@@ -1,11 +1,13 @@
 // components/Navbar.jsx
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserCircleIcon } from '@heroicons/react/24/outline';
+import { UserCircleIcon, HeartIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '../context/AuthContext';
+import { useWishlist } from '../context/WishlistContext';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
+  const { wishlist } = useWishlist();
   const navigate = useNavigate();
   const [downloading, setDownloading] = useState(false);
 
@@ -69,6 +71,18 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium">
             <a href="/#hero" onClick={handleHomeClick} className="silver-link">Home</a>
             <a href="/#how-it-works" className="silver-link">How It Works</a>
+
+            {/* Wishlist link with badge */}
+            <Link to="/wishlist" className="silver-link relative flex items-center gap-1">
+              <HeartIcon className="h-4 w-4" />
+              Wishlist
+              {wishlist.length > 0 && (
+                <span className="absolute -top-2 -right-3 bg-red-500 text-white text-[10px]
+                                 font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  {wishlist.length > 9 ? '9+' : wishlist.length}
+                </span>
+              )}
+            </Link>
             <a
               href="/#download-extension"
               onClick={handleDownloadClick}

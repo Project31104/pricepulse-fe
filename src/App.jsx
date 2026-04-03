@@ -14,6 +14,7 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { WishlistProvider } from './context/WishlistContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -21,22 +22,26 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
 import ProductDetail from './pages/ProductDetail';
+import WishlistPage from './pages/WishlistPage';
 
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/"            element={<Home />} />
-          <Route path="/login"       element={<Login />} />
-          <Route path="/register"    element={<Register />} />
-          <Route path="/dashboard"   element={<Dashboard />} />
-          <Route path="/profile"     element={<Profile />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="*"            element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      <WishlistProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/"            element={<Home />} />
+            <Route path="/login"       element={<Login />} />
+            <Route path="/register"    element={<Register />} />
+            <Route path="/dashboard"   element={<Dashboard />} />
+            <Route path="/profile"     element={<Profile />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/wishlist"    element={<WishlistPage />} />
+            <Route path="*"            element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </WishlistProvider>
     </AuthProvider>
   );
 }
